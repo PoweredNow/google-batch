@@ -61,7 +61,7 @@ function clearCache(module){
 	}
 }
 
-function GoogleBatch(){
+function GoogleBatch({api, version}){
 	var apiCalls = [ ];
 	var token = null;
 	this.setAuth = function(auth){
@@ -96,7 +96,7 @@ function GoogleBatch(){
 			}
 		}
 		var opts = {
-			url : 'https://www.googleapis.com/batch',
+			url : `https://www.googleapis.com/batch/${api}/${version}`,
 			method : 'POST',
 			headers : {
 				'content-type': 'multipart/mixed',
